@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trendy Instagram Spot Visualization in Seoul</title>
+    
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    
+        <!-- MarkerCluster CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/MarkerCluster.Default.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/MarkerCluster.css"/>
+    
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="css/general-styles.css">
+        <link rel="stylesheet" href="css/map-styles.css">
+        <link rel="stylesheet" href="css/menu-styles.css">
+        <link rel="stylesheet" href="css/wordclous-styles.css"> 
+    
+        <!-- D3.js Libraries -->
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="https://d3js.org/topojson.v3.min.js"></script>
+    
+        <!-- Leaflet JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+        <!-- MarkerCluster JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/leaflet.markercluster.js"></script>
+    
+        <!-- Word Cloud Library -->
+        <script src="https://cdn.jsdelivr.net/npm/d3-cloud/build/d3.layout.cloud.js"></script>
+    </head>
+<body>
+
+<!-- 제목, 부제목, 개발자 정보 섹션 -->
+<div class="title-container">
+    <h1 class="title">Trendy Instagram Spot Visualization in Seoul</h1>
+    <p class="subtitle">A visual exploration of Seoul's hottest Instagram locations</p>
+    <div class="authors">
+        <h2>Devs</h2>
+        <ul>
+            <li><a href="https://github.com/achl1990/Trendy-Instagram-Spot-Visualization-in-Seoul" target="_blank">Chanhee Lee</a></li>
+            <li>Seongyup Lim</li>
+            <li>Joowon Lee</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 지도 옵션 설정 체크박스 -->
+<div id="mapOptionsBox">
+    <h3>지도 옵션</h3>
+    <div class="checkbox">
+        <input type="checkbox" id="layerToggle" checked>
+        <label for="layerToggle">서울특별시 자치구 보기</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="hotplacesToggle" checked>
+        <label for="hotplacesToggle">핫플 표시하기</label>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="heatmapToggle">
+        <label for="heatmapToggle">핫플 히트맵 보기</label>
+    </div>
+    <!-- 히트맵 드롭다운 메뉴 -->
+    <select id="seasonSelect">
+        <option value="overall">전체</option>
+        <option value="bySeason">계절별</option>
+    </select>
+    <!-- 히트맵 슬라이더 -->
+    <div id="season-slider-container">
+        <label for="season-slider">계절</label>
+        <input type="range" id="season-slider" min="0" max="3" step="1" value="0">
+        <div id="season-ticks">
+          <span>|</span><span>|</span><span>|</span><span>|</span>
+        </div>
+        <div id="season-labels">
+          </span>봄</span><span>여름</span><span>가을</span><span>겨울</span>
+        </div>
+    </div>  
+</div>
+
+<!-- 지도 컨테이너 -->
+<div id="mapContainer">
+    <div id="map"></div>
+</div>
+
+<!-- 워드 클라우드 인풋 컨테이너 -->
+<div class="wordcloud-input-container">
+    <h3>워드 클라우드 생성기</h3>
+    <p>서울자치구를 입력하고 구별 인스타그램 해시태그의 워드 클라우드를 확인하세요!</p>
+    <input type="text" id="guInput" placeholder="자치구를 입력하세요 (예: 강남구)">
+    <button id="generateWordCloud">워드클라우드 만들기!</button>
+</div>
+
+<!-- 워드 클라우드 컨테이너 -->
+<div class="wordcloud-display-container">
+    <div id="wordCloud"></div>
+</div>
+
+<!-- 리플렛 지도 라이브러리 및 메인 자바스크립트 파일 연결 -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/leaflet.markercluster.js"></script>
+<script type="module" src="map.js"></script>
+<script type="module" src="wordcloud.js"></script>
+
+</body>
+</html>
