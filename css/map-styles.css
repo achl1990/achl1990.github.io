@@ -1,0 +1,114 @@
+/* map-styles.css */
+#mapContainer {
+    margin: 20px auto;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#map {
+    height: 550px;
+    width: 700px;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 4px;
+    font-size: 10px;
+    background: white;
+    border: 1px solid #333;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.text-label {
+    text-anchor: middle;
+    font-size: 15px;
+    font-family: 'Arial', sans-serif;
+    fill: #333;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ensure the text is centered and visible */
+.marker-cluster .marker-cluster-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px; /* Adjust size as needed */
+    color: white; /* White text color */
+    text-shadow: 0 0 3px #000; /* Text shadow for better readability */
+}
+
+.popup-content {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.popup-content .popular-spot,
+.popup-content .normal-spot {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.popup-content .popular-spot:last-child,
+.popup-content .normal-spot:last-child {
+    border-bottom: none;
+}
+
+.popup-content .popular-spot h4,
+.popup-content .normal-spot h4 {
+    margin: 0 0 5px 0;
+    color: #0078A8;
+    font-weight: 700;
+}
+
+.popup-content .popular-spot p,
+.popup-content .normal-spot p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.popup-content .popular-spot {
+    background-color: #fffbe6; /* Light yellow background for popular spots */
+}
+
+.popup-content .popular-spot p strong {
+    color: #d9534f; /* Highlighting popular comments */
+}
+
+.popup-content .popular-spot-note {
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #fffbe6; /* Light yellow background */
+    color: #d9534f; /* Text color for popular spot note */
+    text-align: center;
+    border-radius: 5px;
+}
+
+.popup-content .instagram-links {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px;
+    list-style: none; /* Removes default list styling */
+}
+
+.popup-content .instagram-links ul {
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.popup-content .instagram-links li {
+    margin-bottom: 5px; /* Spacing between list items */
+}
